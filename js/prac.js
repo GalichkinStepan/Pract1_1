@@ -23,6 +23,30 @@ function firstReversePair(str)// Возвращает индекс послед�
 	return endReverseIndex;
 }
 
+function StringLength(str)
+{
+	k = 0;
+	while (str != "")
+	{
+		str = str - str[0];
+		k++;
+	}
+	return k;
+}
+
+function ReverseString(str)
+{
+	strLen = StringLength(str);
+	ar[] = str.split("");
+	for (i = 0; i < strLen / 2; i++)
+	{
+		c = ar[i];
+		ar[i] = ar[strLen - i - 1];
+		ar[strLen - i - 1] = c;
+	}
+	return ar.join("");
+}
+
 str_inp = prompt("Введите строку для проверки:");
 //alert("Перевернутая строка " + str_inp.split("").reverse().join(""));
 k1 = 0;
