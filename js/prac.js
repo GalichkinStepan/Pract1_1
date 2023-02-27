@@ -68,7 +68,7 @@ while(firstReversePair(str_inp) != -1)
 	k1++;
 }
 alert(k1);
-alert(str_inp)
+//alert(str_inp);
 
 
 
