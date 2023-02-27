@@ -28,7 +28,7 @@ function StringLength(str)
 	k = 0;
 	while (str != "")
 	{
-		str = str - str[0];
+		str = str.substring(1);
 		k++;
 	}
 	return k;
@@ -37,7 +37,8 @@ function StringLength(str)
 function ReverseString(str)
 {
 	strLen = StringLength(str);
-	ar[] = str.split("");
+	let ar = new Array();
+	ar = str.split("");
 	for (i = 0; i < strLen / 2; i++)
 	{
 		c = ar[i];
