@@ -58,10 +58,6 @@ function MySubString(str, indSt)
 	return output;
 } 
 
-inp = prompt("");
-alert(MySubString(inp, 2));
-
-/*
 
 str_inp = prompt("Введите строку для проверки:");
 //alert("Перевернутая строка " + str_inp.split("").reverse().join(""));
@@ -74,5 +70,5 @@ while(firstReversePair(str_inp) != -1)
 alert(k1);
 alert(str_inp)
 
-*/
+
 
