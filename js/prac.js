@@ -32,7 +32,7 @@ function StringLength(str)
 		k++;
 	}
 	return k;
-}
+} 
 
 function ReverseString(str)
 {
@@ -46,7 +46,22 @@ function ReverseString(str)
 		ar[strLen - i - 1] = c;
 	}
 	return ar.join("");
-}
+} 
+
+function MySubString(str, indSt)
+{
+	output = "";
+	for (i = indSt; i < StringLength(str); i++)
+	{
+		output += str[i];
+	}
+	return output;
+} 
+
+inp = prompt("");
+alert(MySubString(inp, 2));
+
+/*
 
 str_inp = prompt("Введите строку для проверки:");
 //alert("Перевернутая строка " + str_inp.split("").reverse().join(""));
@@ -59,5 +74,5 @@ while(firstReversePair(str_inp) != -1)
 alert(k1);
 alert(str_inp)
 
-
+*/
 
