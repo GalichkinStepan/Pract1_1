@@ -1,8 +1,8 @@
 function firstReversePair(str)// Возвращает индекс последнего элемента первого фрагмента максимальной длины, перевернутая версия которого встречается в строке
 {
-	strLen = str.length;
-	endReverseIndex = -1;
-	k = 0;
+	var strLen = StringLength(str);
+	var endReverseIndex = -1;
+	var k = 0;
 	for(i = 0; i < strLen - 1; i++)
 	{
 		//alert(i);
@@ -10,9 +10,9 @@ function firstReversePair(str)// Возвращает индекс послед�
 		{
 			//alert(i + "После условия");
 			//alert("У символа есть пара");
-			j = 1;
+			var j = 1;
 			k = 1;
-			while(MySubString(str, i + j).search(str.substring(i, i + j + 1).split('').reverse().join("")) != -1)//Если проверяемая строка содержит после себя перевернутую версию себя
+			while(MySubString(str, i + j).search(ReverseString(MySubString(str, i, i + j + 1))) != -1)//Если проверяемая строка содержит после себя перевернутую версию себя
 			{
 				//alert("Пара найдена");
 				k++;
@@ -27,7 +27,7 @@ function firstReversePair(str)// Возвращает индекс послед�
 
 function StringLength(str)
 {
-	k = 0;
+	var k = 0;
 	while (str != "")
 	{
 		str = str.substring(1);
@@ -38,10 +38,10 @@ function StringLength(str)
 
 function ReverseString(str)
 {
-	strLen = StringLength(str);
+	var strLen = StringLength(str);
 	let ar = new Array();
 	ar = str.split("");
-	for (i = 0; i < strLen / 2; i++)
+	for (var i = 0; i < strLen / 2; i++)
 	{
 		c = ar[i];
 		ar[i] = ar[strLen - i - 1];
@@ -50,15 +50,17 @@ function ReverseString(str)
 	return ar.join("");
 } 
 
-function MySubString(str, indSt)
+function MySubString(str, indSt, indEnd = -1)
 {
-	output = "";
-	strLen = StringLength(str);
+	var output = "";
+	var strLen = StringLength(str);
+	if (indEnd == -1)
+		indEnd = strLen;
 
 	if (indSt >= strLen)
 		return -1;
 
-	for (k = indSt; k < strLen; k++)
+	for (var k = indSt; k < indEnd; k++)
 	{
 		output += str[k];
 	}
@@ -69,13 +71,13 @@ function MySubString(str, indSt)
 /*
 inp = prompt("");
 a = 2;
-alert(MySubString(inp, a));
-alert(a);
+b = 4;
+alert(ReverseString(inp));
 */
 
-str_inp = prompt("Введите строку для проверки:");
+var str_inp = prompt("Введите строку для проверки:");
 //alert("Перевернутая строка " + str_inp.split("").reverse().join(""));
-k1 = 0;
+var k1 = 0;
 while(firstReversePair(str_inp) != -1)
 {
 	str_inp = str_inp.substring(firstReversePair(str_inp) + 1);
