@@ -6,13 +6,13 @@ function firstReversePair(str)// Возвращает индекс послед�
 	for(i = 0; i < strLen - 1; i++)
 	{
 		//alert(i);
-		if(str.substring(i + 1).search(str[i]) != -1)// Если символ встречается дальше в строке
-		{//MySubString(str, i + 1) выдает в следующем алерте индекс за пределами строки в первой же итерации
-			//alert(i);
+		if(MySubString(str, i + 1).search(str[i]) != -1)// Если символ встречается дальше в строке
+		{
+			//alert(i + "После условия");
 			//alert("У символа есть пара");
 			j = 1;
 			k = 1;
-			while(str.substring(i + j).search(str.substring(i, i + j + 1).split("").reverse().join("")) != -1)//Если проверяемая строка содержит после себя перевернутую версию себя
+			while(MySubString(str, i + j).search(str.substring(i, i + j + 1).split('').reverse().join("")) != -1)//Если проверяемая строка содержит после себя перевернутую версию себя
 			{
 				//alert("Пара найдена");
 				k++;
@@ -53,10 +53,16 @@ function ReverseString(str)
 function MySubString(str, indSt)
 {
 	output = "";
-	for (i = indSt; i < StringLength(str); i++)
+	strLen = StringLength(str);
+
+	if (indSt >= strLen)
+		return -1;
+
+	for (k = indSt; k < strLen; k++)
 	{
-		output += str[i];
+		output += str[k];
 	}
+
 	return output;
 } 
 
@@ -72,9 +78,9 @@ str_inp = prompt("Введите строку для проверки:");
 k1 = 0;
 while(firstReversePair(str_inp) != -1)
 {
-	str_inp = str_inp.substring(firstReversePair(str_inp));
+	str_inp = str_inp.substring(firstReversePair(str_inp) + 1);
 	k1++;
 }
 alert(k1);
-//alert(str_inp);
+alert(str_inp);
 
